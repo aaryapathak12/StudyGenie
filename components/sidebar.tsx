@@ -43,6 +43,8 @@ export function Sidebar({ className }: SidebarProps) {
     { icon: BarChart3, label: "Skills", href: "/dashboard/skills" },
     { icon: Users, label: "Community", href: "/dashboard/community" },
     { icon: Calendar, label: "Activity", href: "/dashboard/calendar" },
+    { icon: BookOpen, label: "courses", href: "/dashboard/inst/courses",style: "bg-red-500" },
+    { icon: Users, label: "groups", href: "/dashboard/inst/groups",style: "bg-red-500" }
   ]
 
   const secondaryNavItems = [
@@ -92,8 +94,8 @@ export function Sidebar({ className }: SidebarProps) {
               const isActive= pathname== item.href;
             return (
 
-              
-              <Tooltip key={item.label}>
+              <div   key={item.label} className={`${item.style}`}>
+              <Tooltip>
                 <TooltipTrigger asChild>
                  
                     <Button
@@ -110,6 +112,7 @@ export function Sidebar({ className }: SidebarProps) {
                 </TooltipTrigger>
                 {sidebarCollapsed && <TooltipContent side="right">{item.label}</TooltipContent>}
               </Tooltip>
+              </div>
             )} )}
           </TooltipProvider>
         </nav>
